@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bcaopkircmpw6" path="res://wakatime_logo.jpg" id="2_sx2r2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6aht1"]
-radius = 250.0
+radius = 374.065
 
 [node name="Enemy" type="Area2D"]
+z_index = 999
 script = ExtResource("1_tlkhv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
