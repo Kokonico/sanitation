@@ -17,6 +17,9 @@ func _physics_process(delta):
 	
 	if abs(velocity.x) == 0 and abs(velocity.y) == 0:
 		sliding = false
+		collision_shape_2d.disabled = false
+	elif sliding == true:
+		collision_shape_2d.disabled = true
 	
 	if Input.is_action_pressed("move-up"):
 		direction.y -= 1
@@ -52,8 +55,7 @@ func _physics_process(delta):
 		collision_shape_2d.disabled = true
 		if direction == Vector2.ZERO:
 			direction.x = 1
-		velocity = direction * 2000
-		collision_shape_2d.disabled = false
+		velocity = direction * 2500
 	move_and_slide()
 	position += velocity * delta
 	self.rotation = 0
