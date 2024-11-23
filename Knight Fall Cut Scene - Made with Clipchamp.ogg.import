@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bc14r5ky4bc1c"
+path="res://.godot/imported/Knight Fall Cut Scene - Made with Clipchamp.ogg-0f3a103ebeee02ca13470b12509fb2f6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Knight Fall Cut Scene - Made with Clipchamp.ogg"
+dest_files=["res://.godot/imported/Knight Fall Cut Scene - Made with Clipchamp.ogg-0f3a103ebeee02ca13470b12509fb2f6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
