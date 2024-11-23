@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = $physicsbox
 
 
 const SPEED = 1000.0
@@ -21,9 +21,6 @@ func _physics_process(delta):
 	
 	if abs(velocity.x) <= SPEED_CAP and abs(velocity.y) <= SPEED_CAP:
 		sliding = false
-		collision_shape_2d.disabled = false
-	elif sliding == true:
-		collision_shape_2d.disabled = true
 	
 	if Input.is_action_pressed("move-up"):
 		direction.y -= 1
@@ -65,7 +62,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("dash") and not sliding:
 		sliding = true
-		collision_shape_2d.disabled = true
 		if direction == Vector2.ZERO:
 			direction = last_direction
 		velocity = direction * 2500
