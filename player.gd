@@ -42,7 +42,8 @@ func _physics_process(delta):
 		has_input = true
 		has_x_input = true
 	
-	last_direction = direction
+	if direction != Vector2.ZERO:
+		last_direction = direction
 	
 	direction = direction.normalized()
 	self.rotation = direction.angle()
@@ -62,11 +63,11 @@ func _physics_process(delta):
 		var vely_dir = 1 if vely_abs == velocity.y else -1
 		velocity.y = ((vely_abs - FRACTION_FORCE) if (vely_abs - FRACTION_FORCE) > 0 else 0) * vely_dir
 	
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and not sliding:
 		sliding = true
 		collision_shape_2d.disabled = true
 		if direction == Vector2.ZERO:
-			direction.x = 1
+			direction = last_direction
 		velocity = direction * 2500
 	move_and_slide()
 	position += velocity * delta
