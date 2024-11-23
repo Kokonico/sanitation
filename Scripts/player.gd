@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var attackArea: CollisionPolygon2D = $Area2D/CollisionPolygon2D
+
 
 const TILES_PER_MOVEMENT = 1000
 
@@ -13,3 +15,5 @@ func _process(delta):
 	if Input.is_action_pressed("move-right"):
 		position.x += TILES_PER_MOVEMENT * delta
 	
+func attack() -> void:
+	attackArea.disabled = false

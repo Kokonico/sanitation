@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Texture2D" uid="uid://du0lenqpft2yx" path="res://icon.svg" id="1_aptos"]
-[ext_resource type="Script" path="res://player.gd" id="1_i6qdt"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_i6qdt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lp8tm"]
 radius = 72.0
@@ -15,7 +15,8 @@ texture = ExtResource("1_aptos")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lp8tm")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea"]
 polygon = PackedVector2Array(100, 61, 137, 26, 152, -32, 103, -86, 103, -61, 127, -34, 124, 0, 112, 27, 99, 43)
+disabled = true
