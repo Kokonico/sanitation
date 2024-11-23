@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://bh480lcl1rw7b"]
+[gd_scene load_steps=5 format=4 uid="uid://cnaw6dinkb26e"]
 
-[ext_resource type="PackedScene" uid="uid://bnbexd7lsiij2" path="res://player.tscn" id="1_b2eb0"]
+[ext_resource type="PackedScene" uid="uid://cvw1dlf4kcopg" path="res://player.tscn" id="1_b2eb0"]
 [ext_resource type="Texture2D" uid="uid://dxwwendkaawrh" path="res://tileset-Sheet.png" id="2_t4fpw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_564ik"]
@@ -15,7 +15,7 @@ texture = ExtResource("2_t4fpw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_564ik")
 
-[node name="World" type="Node2D"]
+[node name="World2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_b2eb0")]
 z_index = 4096
