@@ -6,6 +6,10 @@ extends CharacterBody2D
 
 @export var health: int = 5
 
+@onready var walk: AudioStreamPlayer = $Walk
+@onready var dash: AudioStreamPlayer = $Dash
+@onready var slash: AudioStreamPlayer = $Slash
+
 
 const IS_PLAYER = true
 const MAX_HP = 5
@@ -37,6 +41,7 @@ func _physics_process(delta):
 	if abs(velocity.x) <= SPEED_CAP and abs(velocity.y) <= SPEED_CAP:
 		if sliding:
 			sliding = false
+			dash.stop()
 	
 	if not is_dead:
 		
@@ -105,6 +110,16 @@ func _physics_process(delta):
 			animator.play("dash")
 		move_and_slide()
 		position += velocity * delta
+		
+		# anims driver
+		if sliding:
+			if not dash.playing:
+				dash.play()
+		elif has_input:
+			if not walk.playing:
+				walk.play()
+		else:
+			walk.stop()
 	
 	
 func hurt(dmg):
@@ -118,6 +133,7 @@ func hurt(dmg):
 	
 func attack() -> void:
 	animator.play("attack")
+	slash.play()
 	attackCollisionArea.disabled = false
 	await animator.animation_finished
 	attackCollisionArea.disabled = true
@@ -125,4 +141,4 @@ func attack() -> void:
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.get("hurt"):
-		body.hurt(DAMAGE)
+		body.hurt(DAMAGE, direction)

@@ -1,11 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://bnbexd7lsiij2"]
+[gd_scene load_steps=31 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
 [ext_resource type="Texture2D" uid="uid://h73p53wino6y" path="res://Animations/guy1_-dash no bg(1).png" id="4_vm021"]
 [ext_resource type="Texture2D" uid="uid://basi30mqahpol" path="res://Animations/guy1-die no bg(1).png" id="5_ebr33"]
 [ext_resource type="Texture2D" uid="uid://bs0nd1j4ilkej" path="res://Animations/guy1-idle no bg.png" id="6_v6dm4"]
+[ext_resource type="AudioStream" uid="uid://eff7ayhs7ivi" path="res://Audio/WalkFinal.mp3" id="7_s1lbr"]
 [ext_resource type="Texture2D" uid="uid://bml7r7uv5se60" path="res://Animations/guy1-run no bg.png" id="7_u41g7"]
+[ext_resource type="AudioStream" uid="uid://8744hqth3fv" path="res://Audio/FinalDash.mp3" id="8_c0cch"]
+[ext_resource type="AudioStream" uid="uid://brbpegk7dupcf" path="res://Audio/FinalSlash.mp3" id="9_e7g3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lp8tm"]
 radius = 62.0322
@@ -215,5 +218,14 @@ animation = &"death"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea"]
 polygon = PackedVector2Array(82, -42, 87, -29, 90, -16, 90, 2, 87, 17, 83, 33, 75, 52, 28, 19, 29, 4, 27, -45, 36, -54, 42, -59, 52, -59, 64, -55, 75, -51)
 disabled = true
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_s1lbr")
+
+[node name="Dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_c0cch")
+
+[node name="Slash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_e7g3k")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

@@ -59,15 +59,17 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	makepath()
 
-func hurt(dmg):
+func hurt(dmg, direction):
+	attacking = false
 	health -= dmg
+	velocity += direction * 100
 	if health <= 0:
 		health = 0
 		queue_free()
 
 
 func _on_attack_timer_timeout() -> void:
-	attacking = false
-	if in_attack_radius:
+	if in_attack_radius and attacking:
+		attacking = false
 		target.hurt(DAMAGE)
 		attack_timer.stop()
