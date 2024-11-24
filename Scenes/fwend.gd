@@ -9,11 +9,11 @@ extends CharacterBody2D
 @onready var blood_effect_timer: Timer = $BloodEffectTimer
 
 var following
-var target
 var is_dead = false
+var target
 var in_attack_radius
 var attacking = false
-@export var DAMAGE = 1
+@export var DAMAGE = 0
 @export var COOLDOWN = 1
 @export var health = 1
 @export var SPEED = 500
@@ -28,7 +28,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if following and is_dead == false:
 		if not in_attack_radius:
-			var dir = to_local(pathfinder.get_next_path_position()).normalized()
+			var dir = to_local(pathfinder.get_next_path_position()).normalized() * -1
 			velocity = dir * SPEED
 			if dir.x < 0:
 				animator.flip_h = true
@@ -85,6 +85,7 @@ func hurt(dmg, direction):
 		animator.play("death")
 		velocity = Vector2.ZERO
 		is_dead = true
+
 
 func _on_attack_timer_timeout() -> void:
 	if in_attack_radius and attacking:

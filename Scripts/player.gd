@@ -21,6 +21,7 @@ var direction = Vector2.ZERO
 var sliding = false
 var has_y_input = false
 var has_x_input = false
+var enemyCount = 0
 
 var is_dead = false
 
@@ -30,7 +31,7 @@ var last_direction = Vector2.ZERO
 func _ready() -> void:
 	health_bar.value = health
 	health_bar.max_value = MAX_HP
-	attackCollisionArea.disabled = false
+	attackCollisionArea.disabled = true
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
