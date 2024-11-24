@@ -920,7 +920,6 @@ position = Vector2(4903, -1509)
 [node name="Enemy46" parent="." instance=ExtResource("9_glqag")]
 position = Vector2(11314, 1967)
 
-<<<<<<< HEAD
 [node name="Player2" parent="." instance=ExtResource("1_47wvv")]
 position = Vector2(968, 111)
 
@@ -1006,6 +1005,4 @@ theme_override_colors/font_shadow_color = Color(0.666667, 0.466667, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
 text = "EXIT, NEW FOE"
-=======
 
->>>>>>> d8c2f5b55000466a4b5955730d71e35a4ad64b1d

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ua5uroyoritd"]
+[gd_scene load_steps=4 format=3 uid="uid://ua5uroyoritd"]
 
 [ext_resource type="Script" path="res://Scripts/start.gd" id="1_05uv1"]
+[ext_resource type="Texture2D" uid="uid://dopd3splpcwke" path="res://Scripts/thumb-1920-1376990.webp" id="2_dry4h"]
 [ext_resource type="Texture2D" uid="uid://clo3o3wqo1fgv" path="res://Scripts/knightfall_1.webp" id="2_ymdtf"]
 
 [node name="MainMenu" type="Control"]
@@ -28,6 +29,21 @@ grow_vertical = 2
 action_mode = 0
 text = "play"
 script = ExtResource("1_05uv1")
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+z_index = -4096
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.263
+anchor_top = -5.463
+anchor_right = 1.32
+anchor_bottom = 1.309
+offset_left = 4.04201
+offset_top = -0.0896606
+offset_right = -10.8801
+offset_bottom = -17.9728
+texture = ExtResource("2_dry4h")
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
