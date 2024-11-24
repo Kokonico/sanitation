@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://chd2ye1rj6f6f"]
+
+[ext_resource type="Script" path="res://Scripts/rich_text_label.gd" id="1_vt7ih"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "[center]Good morning Noble Night! We have a mission for you, go slay the foul monsters that are pillaging the village."
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_vt7ih")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "[center]You have arrived! Notice those disgusting monsters harrasing our villagers, please take care of them swiftly before they do any more harm."
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_vt7ih")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "[center]Great job Noble Knight! You've slain the monsters! Please return home, your reward awaits you!"
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_vt7ih")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "[center]KNIGHT WHAT ARE YOU DOING?! WHY ARE YOU ATTACKING THE VILLAGERS??"
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_vt7ih")
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "[center]Good morning Noble Night! We have a mission for you, go slay the foul monsterthat is attacking the villagers!"
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_vt7ih")

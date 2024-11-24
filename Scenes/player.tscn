@@ -1,7 +1,9 @@
+
 [gd_scene load_steps=31 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
+[ext_resource type="PackedScene" uid="uid://chd2ye1rj6f6f" path="res://Scenes/text/text1.tscn" id="3_bja68"]
 [ext_resource type="Texture2D" uid="uid://h73p53wino6y" path="res://Animations/guy1_-dash no bg(1).png" id="4_vm021"]
 [ext_resource type="Texture2D" uid="uid://basi30mqahpol" path="res://Animations/guy1-die no bg(1).png" id="5_ebr33"]
 [ext_resource type="Texture2D" uid="uid://bs0nd1j4ilkej" path="res://Animations/guy1-idle no bg.png" id="6_v6dm4"]
@@ -189,6 +191,7 @@ script = ExtResource("1_6cs37")
 shape = SubResource("CircleShape2D_lp8tm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -205,6 +208,16 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl25q")
 fill_mode = 3
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_bja68")]
+anchors_preset = -1
+anchor_left = 0.320313
+anchor_top = 0.91358
+anchor_right = 0.805556
+anchor_bottom = 0.99537
+offset_right = 0.0
+offset_bottom = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(27, 15)
