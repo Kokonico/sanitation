@@ -1,4 +1,5 @@
-[gd_scene load_steps=25 format=3 uid="uid://c403patrcxw2m"]
+
+[gd_scene load_steps=7 format=3 uid="uid://c403patrcxw2m"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_tlkhv"]
 [ext_resource type="Texture2D" uid="uid://drdlrhvy375yp" path="res://Scripts/gobbo-sword_swing.png_1.png" id="3_dloja"]
@@ -145,6 +146,9 @@ animations = [{
 "name": &"run",
 "speed": 8.0
 }]
+[sub_resource type="Curve" id="Curve_3fk6f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 999
@@ -163,6 +167,8 @@ shape = SubResource("CircleShape2D_6aht1")
 shape = SubResource("CircleShape2D_e3nfh")
 
 [node name="pathfinder" type="NavigationAgent2D" parent="physicsbox"]
+avoidance_layers = 5
+avoidance_mask = 5
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="physicsbox/pathfinder"]
@@ -187,8 +193,30 @@ sprite_frames = SubResource("SpriteFrames_v2ggj")
 animation = &"idle"
 frame_progress = 0.958119
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(1, 0)
+emitting = false
+amount = 1000
+direction = Vector2(1, -1)
+spread = 180.0
+initial_velocity_max = 1000.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 30.3
+color = Color(0.784117, 2.28621e-06, 9.62615e-07, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+hue_variation_curve = SubResource("Curve_3fk6f")
+
+[node name="BloodEffectTimer" type="Timer" parent="."]
+wait_time = 0.05
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="physicsbox/pathfinder/Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="BloodEffectTimer" to="." method="_on_blood_effect_timer_timeout"]
