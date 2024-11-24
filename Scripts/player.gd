@@ -46,10 +46,14 @@ func _physics_process(delta):
 		has_input = true
 		has_y_input = true
 	if Input.is_action_pressed("move-left"):
+		scale.y = -1
+		rotation = PI
 		direction.x -= 1
 		has_input = true
 		has_x_input = true
 	if Input.is_action_pressed("move-right"):
+		scale.y = 1
+		rotation = 0
 		direction.x += 1
 		has_input = true
 		has_x_input = true
