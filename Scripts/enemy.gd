@@ -99,5 +99,4 @@ func _on_attack_timer_timeout() -> void:
 
 
 func _on_blood_effect_timer_timeout() -> void:
-	if is_dead == true:
-		blood.emitting = false
+	blood.emitting = false
