@@ -15,7 +15,7 @@ var in_attack_radius
 var attacking = false
 @export var DAMAGE = 1
 @export var COOLDOWN = 1
-@export var health = 1
+@export var health = 3
 @export var SPEED = 500
 
 # Called when the node enters the scene tree for the first time.

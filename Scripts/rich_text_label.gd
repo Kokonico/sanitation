@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 	if get_parent().get_parent().get_parent().position.y < y:
 		visible_characters += 1
 		if visible_ratio == 1:
-			await get_tree().create_timer(6).timeout
+			await get_tree().create_timer(3).timeout
 			visible = false
