@@ -10,7 +10,7 @@ var in_attack_radius
 var attacking = false
 @export var DAMAGE = 1
 @export var COOLDOWN = 1
-@export var health = 5
+@export var health = 500
 @export var SPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,9 +25,11 @@ func _physics_process(delta: float) -> void:
 			var dir = to_local(pathfinder.get_next_path_position()).normalized()
 			velocity = dir * SPEED
 		elif attacking == false:
+			print("prep")
 			velocity = Vector2.ZERO
-			if attack_timer.is_stopped():
-				attack_timer.start(COOLDOWN)
+			print("going for it")
+			attacking = true
+			attack_timer.start(COOLDOWN)
 		else:
 			velocity = Vector2.ZERO
 			
@@ -60,6 +62,7 @@ func _on_timer_timeout() -> void:
 	makepath()
 
 func hurt(dmg, direction):
+	print("owie owie ow")
 	attacking = false
 	health -= dmg
 	velocity += direction * 100
@@ -71,5 +74,9 @@ func hurt(dmg, direction):
 func _on_attack_timer_timeout() -> void:
 	if in_attack_radius and attacking:
 		attacking = false
+		print("attacking!!!")
 		target.hurt(DAMAGE)
 		attack_timer.stop()
+	else:
+		print(in_attack_radius)
+		print(attacking)
