@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	target = body
-	following = true
+	if body.get("IS_PLAYER"):
+		target = body
+		following = true
 	
 func follow(target) -> void:
 	var direction = Vector2(target.position-position).normalized()
@@ -25,4 +26,5 @@ func follow(target) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	following = false
+	if body.get("IS_PLAYER"):
+		following = false

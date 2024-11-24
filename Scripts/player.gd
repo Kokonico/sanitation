@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @export var health: float = 100.0
 
+
+const IS_PLAYER = true
 const MAX_HP = 100.0
 const SPEED = 1000.0
 const SPEED_CAP = 1000.0
@@ -13,6 +15,7 @@ var direction = Vector2.ZERO
 var sliding = false
 var has_y_input = false
 var has_x_input = false
+
 
 var last_direction = Vector2.ZERO
 
