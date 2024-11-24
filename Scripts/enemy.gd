@@ -2,11 +2,12 @@ extends Area2D
 
 var following
 var target
-@export var health = 100
+var health
 @export var SPEED = 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	health = int(randf_range(1, 3))
+	print(health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,3 +27,9 @@ func follow(target) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	following = false
+
+func hurt(dmg):
+	health -= dmg
+	if health <= 0:
+		health = 0
+		queue_free()

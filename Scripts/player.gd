@@ -1,14 +1,16 @@
 extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $physicsbox
 @onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attackCollisionArea: CollisionPolygon2D = $AttackArea/CollisionPolygon2D
 
 @export var health: float = 100.0
-@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 const MAX_HP = 100.0
 const SPEED = 1000.0
 const SPEED_CAP = 1000.0
 const FRACTION_FORCE = 100
+const DAMAGE = 1
 var directions = []
 var direction = Vector2.ZERO
 var sliding = false
@@ -51,6 +53,9 @@ func _physics_process(delta):
 		has_input = true
 		has_x_input = true
 		animator.play("run")
+	elif animator.animation == "attack":
+		await animator.animation_finished
+		animator.play("idle")
 	else:
 		animator.play("idle")
 	
@@ -85,11 +90,21 @@ func _physics_process(delta):
 	position += velocity * delta
 	self.rotation = 0
 	
-func hurt(hp):
-	health -= hp
+	if Input.is_action_just_pressed("attack"):
+		attack()
+	
+func hurt(dmg):
+	health -= dmg
 	if health <= 0:
 		health = 0
 		animator.play("death")
 	
 func attack() -> void:
-	pass
+	animator.play("attack")
+	attackCollisionArea.disabled = false
+	await animator.animation_finished
+	attackCollisionArea.disabled = true
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	body.get_parent().hurt(DAMAGE)

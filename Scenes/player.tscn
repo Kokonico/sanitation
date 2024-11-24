@@ -178,6 +178,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_6cs37")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -209,4 +211,13 @@ fill_mode = 3
 position = Vector2(27, 15)
 scale = Vector2(2.96, 2.96)
 sprite_frames = SubResource("SpriteFrames_qye1j")
-animation = &"attack"
+animation = &"run"
+frame_progress = 0.833199
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea"]
+polygon = PackedVector2Array(82, -42, 87, -29, 90, -16, 90, 2, 87, 17, 83, 33, 75, 52, 28, 19, 29, 4, 27, -45, 36, -54, 42, -59, 52, -59, 64, -55, 75, -51)
+disabled = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
