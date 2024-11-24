@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://bnbexd7lsiij2"]
+[gd_scene load_steps=33 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
 [ext_resource type="PackedScene" uid="uid://chd2ye1rj6f6f" path="res://Scenes/text/text1.tscn" id="3_bja68"]
 [ext_resource type="Texture2D" uid="uid://b1i0vshtdfbdb" path="res://Scenes/Game-Health-Bar-PNG-Background.png" id="3_f1kqk"]
+[ext_resource type="Script" path="res://Scenes/button.gd" id="4_u0mu8"]
 [ext_resource type="Texture2D" uid="uid://h73p53wino6y" path="res://Animations/guy1_-dash no bg(1).png" id="4_vm021"]
 [ext_resource type="Texture2D" uid="uid://basi30mqahpol" path="res://Animations/guy1-die no bg(1).png" id="5_ebr33"]
 [ext_resource type="Texture2D" uid="uid://bs0nd1j4ilkej" path="res://Animations/guy1-idle no bg.png" id="6_v6dm4"]
@@ -209,6 +210,18 @@ offset_bottom = 252.0
 value = 100.0
 texture_progress = ExtResource("3_f1kqk")
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_right = 0.999
+anchor_bottom = 1.0
+offset_right = 0.151855
+offset_bottom = 5.0
+text = "YOU DIED
+
+QUIT."
+script = ExtResource("4_u0mu8")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(27, 15)
 scale = Vector2(2.96, 2.96)
@@ -230,4 +243,5 @@ stream = ExtResource("8_c0cch")
 [node name="Slash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_e7g3k")
 
+[connection signal="button_up" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_button_up"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

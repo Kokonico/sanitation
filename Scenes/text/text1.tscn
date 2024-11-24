@@ -28,6 +28,7 @@ text = "[center]You have arrived! Notice those disgusting monsters harrasing our
 visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("1_vt7ih")
+y = -2000
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -41,7 +42,6 @@ script = ExtResource("1_vt7ih")
 y = -5800
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 569.0
 offset_bottom = 63.0
@@ -50,7 +50,7 @@ text = "[center]KNIGHT WHAT ARE YOU DOING?! WHY ARE YOU ATTACKING THE VILLAGERS?
 visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("1_vt7ih")
-y = -3590
+y = -99999999999
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 layout_mode = 0

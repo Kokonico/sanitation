@@ -10,11 +10,10 @@ extends CharacterBody2D
 @onready var dash: AudioStreamPlayer = $Dash
 @onready var slash: AudioStreamPlayer = $Slash
 
-
 const IS_PLAYER = true
 const MAX_HP = 5
-const SPEED = 1000.0
-const SPEED_CAP = 1000.0
+const SPEED = 500.0
+const SPEED_CAP = 750.0
 const FRACTION_FORCE = 100
 const DAMAGE = 1
 var direction = Vector2.ZERO
@@ -132,7 +131,8 @@ func hurt(dmg):
 		velocity = Vector2.ZERO
 		animator.play("death")
 		await animator.animation_finished
-		get_tree().reload_current_scene()
+		if dmg < 1000:
+			get_tree().reload_current_scene()
 	
 func attack() -> void:
 	animator.play("attack")

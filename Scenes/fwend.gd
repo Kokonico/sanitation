@@ -86,7 +86,6 @@ func hurt(dmg, direction):
 		velocity = Vector2.ZERO
 		is_dead = true
 
-
 func _on_attack_timer_timeout() -> void:
 	if in_attack_radius and attacking:
 		attacking = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=4 uid="uid://bh480lcl1rw7b"]
+[gd_scene load_steps=36 format=4 uid="uid://bh480lcl1rw7b"]
 
 [ext_resource type="PackedScene" uid="uid://bnbexd7lsiij2" path="res://Scenes/player.tscn" id="1_47wvv"]
+[ext_resource type="Texture2D" uid="uid://bha6mlqqne6w3" path="res://Scenes/guy1-profile.png" id="1_ujuf4"]
 [ext_resource type="PackedScene" uid="uid://c403patrcxw2m" path="res://Scenes/enemy.tscn" id="2_85b5f"]
 [ext_resource type="Texture2D" uid="uid://14gcptsd32r" path="res://19.07a - Gentle Forest 3.0a ($0 palettes)/gentle sheets/gentle forest v02.png" id="3_2vtb6"]
 [ext_resource type="Texture2D" uid="uid://dxwwendkaawrh" path="res://tileset-Sheet.png" id="4_pvs5d"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgaujd6dnrea7" path="res://Scripts/house.png" id="6_sxaa4"]
 [ext_resource type="Texture2D" uid="uid://be20g8473b43w" path="res://Scenes/Gate_1.png" id="7_kvmha"]
 [ext_resource type="PackedScene" uid="uid://5qi2o4v3i7h" path="res://Scenes/fwend.tscn" id="9_glqag"]
+[ext_resource type="Texture2D" uid="uid://sgfx0mwlgm6v" path="res://Scenes/wooden-board-pixel-art-design-free-vector-removebg-preview.png" id="11_dxrhb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dm2ph"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -770,6 +772,12 @@ sources/7 = SubResource("TileSetAtlasSource_ugkwh")
 
 [node name="World" type="Node2D"]
 
+[node name="Guy1-profile" type="Sprite2D" parent="."]
+z_index = 60
+position = Vector2(1603.75, -9934.75)
+scale = Vector2(5.61, 4.76351)
+texture = ExtResource("1_ujuf4")
+
 [node name="Enemy" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(132, 159)
 
@@ -852,9 +860,6 @@ position = Vector2(9082, -4017)
 [node name="Enemy16" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(8877, -3782)
 
-[node name="Enemy17" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(8908, -3924)
-
 [node name="Enemy18" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(8943, -1721)
 
@@ -879,24 +884,6 @@ position = Vector2(12819, -3665)
 [node name="Enemy25" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(12850, -3807)
 
-[node name="Enemy26" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(12607, -3059)
-
-[node name="Enemy27" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(12638, -3218)
-
-[node name="Enemy28" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(12433, -2983)
-
-[node name="Enemy29" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(12464, -3125)
-
-[node name="Enemy30" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(15049, -3418)
-
-[node name="Enemy31" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(15080, -3577)
-
 [node name="Enemy32" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(14875, -3342)
 
@@ -908,15 +895,6 @@ position = Vector2(14995, -1191)
 
 [node name="Enemy35" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(15026, -1350)
-
-[node name="Enemy36" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(14821, -1115)
-
-[node name="Enemy37" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(14852, -1257)
-
-[node name="Enemy38" parent="." instance=ExtResource("2_85b5f")]
-position = Vector2(13352, -1820)
 
 [node name="Enemy39" parent="." instance=ExtResource("2_85b5f")]
 position = Vector2(13383, -1979)
@@ -941,3 +919,90 @@ position = Vector2(4903, -1509)
 
 [node name="Enemy46" parent="." instance=ExtResource("9_glqag")]
 position = Vector2(11314, 1967)
+
+[node name="Player2" parent="." instance=ExtResource("1_47wvv")]
+position = Vector2(968, 111)
+
+[node name="fwend 5" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(10571, -7566)
+
+[node name="fwend 6" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(12070, -7553)
+
+[node name="fwend 7" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(15194, -7274)
+
+[node name="fwend 8" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(14876, -8632)
+
+[node name="fwend 9" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(13416, -8569)
+
+[node name="fwend 10" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(4552, -8201)
+
+[node name="fwend 11" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(14267, -7375)
+
+[node name="fwend 12" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(8438, -6766)
+
+[node name="fwend 13" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(5458, -7084)
+
+[node name="fwend 14" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(6017, -8383)
+
+[node name="fwend 15" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(6998, -7673)
+
+[node name="fwend 16" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(10185, -7303)
+
+[node name="fwend 17" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(11446, -7756)
+
+[node name="fwend 18" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(11378, -8957)
+
+[node name="fwend 19" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(9536, -8813)
+
+[node name="fwend 20" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(6727, -8987)
+
+[node name="fwend 21" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(13000, -7387)
+
+[node name="fwend 22" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(5140, -7971)
+
+[node name="fwend 23" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(12556, -8479)
+
+[node name="fwend 24" parent="." instance=ExtResource("9_glqag")]
+position = Vector2(7565, -8568)
+
+[node name="Wooden-board-pixel-art-design-free-vector-removebg-preview" type="Sprite2D" parent="."]
+z_index = 90
+position = Vector2(11098, -9691)
+scale = Vector2(0.8, 0.866)
+skew = -0.268781
+texture = ExtResource("11_dxrhb")
+
+[node name="Label" type="Label" parent="Wooden-board-pixel-art-design-free-vector-removebg-preview"]
+anchors_preset = -1
+anchor_left = 0.23
+anchor_top = 0.146
+anchor_right = 0.776
+anchor_bottom = 0.428
+offset_left = -246.489
+offset_top = -228.705
+offset_right = -246.489
+offset_bottom = -228.705
+theme_override_colors/font_color = Color(0.768627, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.666667, 0.466667, 0.290196, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 38
+text = "EXIT, NEW FOE"
+
