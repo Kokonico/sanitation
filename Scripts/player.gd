@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
 
 @export var health: float = 100.0
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 const MAX_HP = 100.0
 const SPEED = 1000.0
@@ -29,22 +30,29 @@ func _physics_process(delta):
 	if abs(velocity.x) <= SPEED_CAP and abs(velocity.y) <= SPEED_CAP:
 		sliding = false
 	
+	
 	if Input.is_action_pressed("move-up"):
 		direction.y -= 1
 		has_input = true
 		has_y_input = true
-	if Input.is_action_pressed("move-down"):
+		animator.play("run")
+	elif Input.is_action_pressed("move-down"):
 		direction.y += 1
 		has_input = true
 		has_y_input = true
-	if Input.is_action_pressed("move-left"):
+		animator.play("run")
+	elif Input.is_action_pressed("move-left"):
 		direction.x -= 1
 		has_input = true
 		has_x_input = true
-	if Input.is_action_pressed("move-right"):
+		animator.play("run")
+	elif Input.is_action_pressed("move-right"):
 		direction.x += 1
 		has_input = true
 		has_x_input = true
+		animator.play("run")
+	else:
+		animator.play("idle")
 	
 	if direction != Vector2.ZERO:
 		last_direction = direction
@@ -72,6 +80,7 @@ func _physics_process(delta):
 		if direction == Vector2.ZERO:
 			direction = last_direction
 		velocity = direction * 2500
+		animator.play("dash")
 	move_and_slide()
 	position += velocity * delta
 	self.rotation = 0
@@ -80,6 +89,7 @@ func hurt(hp):
 	health -= hp
 	if health <= 0:
 		health = 0
+		animator.play("death")
 	
 func attack() -> void:
 	pass

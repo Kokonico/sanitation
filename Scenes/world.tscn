@@ -26,6 +26,7 @@ position = Vector2(940, 159)
 z_index = 999
 position = Vector2(940, 159)
 script = ExtResource("3_45pon")
+health = 100.0
 
 [node name="Tiles" type="Node" parent="."]
 
