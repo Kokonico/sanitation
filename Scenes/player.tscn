@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=31 format=3 uid="uid://bnbexd7lsiij2"]
+[gd_scene load_steps=32 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
