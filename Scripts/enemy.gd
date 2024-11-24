@@ -8,9 +8,11 @@ var target
 var in_attack_radius
 @export var health = 100
 @export var SPEED = 500
+var health
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	health = int(randf_range(1, 3))
+	print(health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +39,6 @@ func follow(target) -> void:
 	var direction = Vector2(target.position-position).normalized()
 	velocity = direction * SPEED
 
-
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	in_attack_radius = true
 
@@ -48,3 +49,9 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	makepath()
+
+func hurt(dmg):
+	health -= dmg
+	if health <= 0:
+		health = 0
+		queue_free()

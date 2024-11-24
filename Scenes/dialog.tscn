@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://milra0x7assm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_51vhl"]
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 236.0
+offset_top = 535.0
+offset_right = -193.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.948
+offset_right = -1.0
+offset_bottom = 4.93999
+text = "In the end, was it worth it?"
+label_settings = SubResource("LabelSettings_51vhl")
+horizontal_alignment = 1
+vertical_alignment = 1
