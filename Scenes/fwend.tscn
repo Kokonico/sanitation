@@ -9,7 +9,7 @@
 radius = 374.065
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3nfh"]
-radius = 56.0357
+radius = 127.738
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tve08"]
 size = Vector2(265, 266)
@@ -176,7 +176,7 @@ shape = SubResource("RectangleShape2D_tve08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(37, -18)
-scale = Vector2(3.065, 3.065)
+scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_v2ggj")
 animation = &"idle"
 
