@@ -13,7 +13,6 @@ const SPEED = 1000.0
 const SPEED_CAP = 1000.0
 const FRACTION_FORCE = 100
 const DAMAGE = 1
-var directions = []
 var direction = Vector2.ZERO
 var sliding = false
 var has_y_input = false
@@ -33,34 +32,30 @@ func _physics_process(delta):
 	has_x_input = false
 	
 	if abs(velocity.x) <= SPEED_CAP and abs(velocity.y) <= SPEED_CAP:
-		sliding = false
+		if sliding:
+			sliding = false
 	
 	
 	if Input.is_action_pressed("move-up"):
 		direction.y -= 1
 		has_input = true
 		has_y_input = true
-		animator.play("run")
-	elif Input.is_action_pressed("move-down"):
+	if Input.is_action_pressed("move-down"):
 		direction.y += 1
 		has_input = true
 		has_y_input = true
-		animator.play("run")
-	elif Input.is_action_pressed("move-left"):
+	if Input.is_action_pressed("move-left"):
 		direction.x -= 1
 		has_input = true
 		has_x_input = true
-		animator.play("run")
-	elif Input.is_action_pressed("move-right"):
+	if Input.is_action_pressed("move-right"):
 		direction.x += 1
 		has_input = true
 		has_x_input = true
-		animator.play("run")
-	elif animator.animation == "attack":
-		await animator.animation_finished
-		animator.play("idle")
-	else:
-		animator.play("idle")
+		
+	if Input.is_action_just_pressed("attack"):
+		has_input = true
+		attack()
 	
 	if direction != Vector2.ZERO:
 		last_direction = direction
@@ -83,6 +78,11 @@ func _physics_process(delta):
 		var vely_dir = 1 if vely_abs == velocity.y else -1
 		velocity.y = ((vely_abs - FRACTION_FORCE) if (vely_abs - FRACTION_FORCE) > 0 else 0) * vely_dir
 	
+	if has_x_input or has_y_input:
+		animator.play("run")
+	elif not has_input:
+		animator.play("idle")
+	
 	if Input.is_action_just_pressed("dash") and not sliding:
 		sliding = true
 		if direction == Vector2.ZERO:
@@ -93,8 +93,6 @@ func _physics_process(delta):
 	position += velocity * delta
 	self.rotation = 0
 	
-	if Input.is_action_just_pressed("attack"):
-		attack()
 	
 func hurt(dmg):
 	health -= dmg

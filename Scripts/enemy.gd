@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if following and not in_attack_radius:
+	if following:
 		var dir = to_local(pathfinder.get_next_path_position()).normalized()
 		velocity = dir * SPEED
 	else:
@@ -33,10 +33,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.get("IS_PLAYER"):
 		target = body
 		following = true
-	
-func follow(target) -> void:
-	var direction = Vector2(target.position-position).normalized()
-	velocity = direction * SPEED
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	in_attack_radius = true

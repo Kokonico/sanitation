@@ -1,20 +1,42 @@
-[gd_scene load_steps=6 format=4 uid="uid://bh480lcl1rw7b"]
+[gd_scene load_steps=9 format=4 uid="uid://bh480lcl1rw7b"]
 
 [ext_resource type="PackedScene" uid="uid://bnbexd7lsiij2" path="res://Scenes/player.tscn" id="1_47wvv"]
 [ext_resource type="PackedScene" uid="uid://c403patrcxw2m" path="res://Scenes/enemy.tscn" id="2_85b5f"]
 [ext_resource type="Texture2D" uid="uid://dxwwendkaawrh" path="res://tileset-Sheet.png" id="4_pvs5d"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dm2ph"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4u2go"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gem6m"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_refcf"]
 texture = ExtResource("4_pvs5d")
 0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dm2ph")
 1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4u2go")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gem6m")
 
 [sub_resource type="TileSet" id="TileSet_hrgf1"]
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 4
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_refcf")
 
 [node name="World" type="Node2D"]
