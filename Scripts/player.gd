@@ -1,9 +1,10 @@
 extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $physicsbox
+@onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
 
-@onready var attackArea: CollisionPolygon2D = $Area2D/CollisionPolygon2D
+@export var health: float = 100.0
 
-
+const MAX_HP = 100.0
 const SPEED = 1000.0
 const SPEED_CAP = 1000.0
 const FRACTION_FORCE = 100
@@ -14,6 +15,10 @@ var has_y_input = false
 var has_x_input = false
 
 var last_direction = Vector2.ZERO
+
+func _ready() -> void:
+	health_bar.value = health
+	health_bar.max_value = MAX_HP
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -71,5 +76,10 @@ func _physics_process(delta):
 	position += velocity * delta
 	self.rotation = 0
 	
+func hurt(hp):
+	health -= hp
+	if health <= 0:
+		health = 0
+	
 func attack() -> void:
-	attackArea.disabled = false
+	pass
