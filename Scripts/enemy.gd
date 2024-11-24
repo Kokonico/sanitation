@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var pathfinder: NavigationAgent2D = $physicsbox/pathfinder
 @onready var timer: Timer = $physicsbox/pathfinder/Timer
 @onready var attack_timer: Timer = $AttackTimer
+@onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 var following
 var target
@@ -24,6 +25,11 @@ func _physics_process(delta: float) -> void:
 		if not in_attack_radius:
 			var dir = to_local(pathfinder.get_next_path_position()).normalized()
 			velocity = dir * SPEED
+			if dir.x < 0:
+				animator.flip_h = true
+			elif dir.x > 0:
+				animator.flip_h = false
+			animator.play("run")
 		elif attacking == false:
 			print("prep")
 			velocity = Vector2.ZERO
@@ -35,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			
 	else:
 		velocity = Vector2.ZERO
+		animator.play("idle")
 	move_and_slide()
 
 func makepath():
@@ -74,6 +81,7 @@ func hurt(dmg, direction):
 func _on_attack_timer_timeout() -> void:
 	if in_attack_radius and attacking:
 		attacking = false
+		animator.play("attack")
 		print("attacking!!!")
 		target.hurt(DAMAGE)
 		attack_timer.stop()

@@ -699,7 +699,7 @@ tile_map_data = PackedByteArray("AACCAN/+BgAtADEAAADPAP/+BgAtADEAAABOAd/+BgAtADE
 tile_set = SubResource("TileSet_hrgf1")
 
 [node name="Player" parent="." instance=ExtResource("1_47wvv")]
-position = Vector2(10988, 3303)
+position = Vector2(269, -432)
 
 [node name="Castle-platformer-pixel-art-tileset2_png" type="Sprite2D" parent="."]
 position = Vector2(10842, -8342)
