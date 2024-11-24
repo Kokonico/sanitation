@@ -24,6 +24,7 @@ var last_direction = Vector2.ZERO
 func _ready() -> void:
 	health_bar.value = health
 	health_bar.max_value = MAX_HP
+	attackCollisionArea.disabled = false
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -78,10 +79,13 @@ func _physics_process(delta):
 		var vely_dir = 1 if vely_abs == velocity.y else -1
 		velocity.y = ((vely_abs - FRACTION_FORCE) if (vely_abs - FRACTION_FORCE) > 0 else 0) * vely_dir
 	
-	if has_x_input or has_y_input:
-		animator.play("run")
-	elif not has_input:
-		animator.play("idle")
+	if animator.animation != "attack":
+		if has_x_input or has_y_input:
+			animator.play("run")
+		elif not has_input:
+			animator.play("idle")
+	elif animator.animation_finished:
+		animator.animation == "idle"
 	
 	if Input.is_action_just_pressed("dash") and not sliding:
 		sliding = true
@@ -91,7 +95,6 @@ func _physics_process(delta):
 		animator.play("dash")
 	move_and_slide()
 	position += velocity * delta
-	self.rotation = 0
 	
 	
 func hurt(dmg):
@@ -108,4 +111,5 @@ func attack() -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	body.get_parent().hurt(DAMAGE)
+	if body.get("hurt"):
+		body.hurt(DAMAGE)
