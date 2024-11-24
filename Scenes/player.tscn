@@ -205,16 +205,16 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl25q")
+max_value = 5.0
 allow_greater = true
+allow_lesser = true
 fill_mode = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(27, 15)
 scale = Vector2(2.96, 2.96)
 sprite_frames = SubResource("SpriteFrames_qye1j")
-animation = &"attack"
-frame = 4
-frame_progress = 1.0
+animation = &"death"
 
 [node name="AttackArea" type="Area2D" parent="."]
 

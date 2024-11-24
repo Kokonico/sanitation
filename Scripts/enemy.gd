@@ -2,23 +2,35 @@ extends CharacterBody2D
 @onready var attack_zone: CollisionShape2D = $AttackRange/CollisionShape2D
 @onready var pathfinder: NavigationAgent2D = $physicsbox/pathfinder
 @onready var timer: Timer = $physicsbox/pathfinder/Timer
+@onready var attack_timer: Timer = $AttackTimer
 
 var following
 var target
 var in_attack_radius
+var attacking = false
+@export var DAMAGE = 1
+@export var COOLDOWN = 1
 @export var health = 5
 @export var SPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health = int(randf_range(1, 3))
-	print(health)
+	attack_timer.wait_time = COOLDOWN
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if following:
-		var dir = to_local(pathfinder.get_next_path_position()).normalized()
-		velocity = dir * SPEED
+		if not in_attack_radius:
+			var dir = to_local(pathfinder.get_next_path_position()).normalized()
+			velocity = dir * SPEED
+		elif attacking == false:
+			velocity = Vector2.ZERO
+			if attack_timer.is_stopped():
+				attack_timer.start(COOLDOWN)
+		else:
+			velocity = Vector2.ZERO
+			
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -35,11 +47,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		following = true
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
-	in_attack_radius = true
+	if body.get("IS_PLAYER"):
+		in_attack_radius = true
 
 
 func _on_attack_range_body_exited(body: Node2D) -> void:
-	in_attack_radius = false
+	if body.get("IS_PLAYER"):
+		in_attack_radius = false
 
 
 func _on_timer_timeout() -> void:
@@ -50,3 +64,10 @@ func hurt(dmg):
 	if health <= 0:
 		health = 0
 		queue_free()
+
+
+func _on_attack_timer_timeout() -> void:
+	attacking = false
+	if in_attack_radius:
+		target.hurt(DAMAGE)
+		attack_timer.stop()
