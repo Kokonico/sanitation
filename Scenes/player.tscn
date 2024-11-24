@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://bnbexd7lsiij2"]
+[gd_scene load_steps=28 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
-[ext_resource type="Texture2D" uid="uid://du0lenqpft2yx" path="res://icon.svg" id="1_aptos"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
 [ext_resource type="Texture2D" uid="uid://h73p53wino6y" path="res://Animations/guy1_-dash no bg(1).png" id="4_vm021"]
 [ext_resource type="Texture2D" uid="uid://basi30mqahpol" path="res://Animations/guy1-die no bg(1).png" id="5_ebr33"]
@@ -183,9 +182,6 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_6cs37")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_aptos")
-
 [node name="physicsbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lp8tm")
 
@@ -205,8 +201,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl25q")
-max_value = 5.0
-allow_greater = true
 allow_lesser = true
 fill_mode = 3
 

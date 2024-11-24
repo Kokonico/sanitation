@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 
 const IS_PLAYER = true
-const MAX_HP = 100.0
+const MAX_HP = 5
 const SPEED = 1000.0
 const SPEED_CAP = 1000.0
 const FRACTION_FORCE = 100
@@ -65,11 +65,11 @@ func _physics_process(delta):
 			has_input = true
 			attack()
 		
+		direction = direction.normalized()
 		if direction != Vector2.ZERO:
 			last_direction = direction
 		
-		direction = direction.normalized()
-		self.rotation = direction.angle()
+		# self.rotation = direction.angle()
 		if not sliding:
 			velocity += direction * SPEED
 			if abs(velocity.x) > SPEED_CAP:
@@ -85,6 +85,9 @@ func _physics_process(delta):
 			var vely_abs = abs(velocity.y)
 			var vely_dir = 1 if vely_abs == velocity.y else -1
 			velocity.y = ((vely_abs - FRACTION_FORCE) if (vely_abs - FRACTION_FORCE) > 0 else 0) * vely_dir
+		
+		if not has_input and last_direction == Vector2(-1, 0):
+			rotation = PI
 		
 		if animator.animation != "attack":
 			if has_x_input or has_y_input:
