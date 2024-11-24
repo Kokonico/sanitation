@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var pathfinder: NavigationAgent2D = $physicsbox/pathfinder
 @onready var timer: Timer = $physicsbox/pathfinder/Timer
 @onready var attack_timer: Timer = $AttackTimer
+@onready var blood: CPUParticles2D = $CPUParticles2D
+@onready var blood_effect_timer: Timer = $BloodEffectTimer
 
 var following
 var target
@@ -65,6 +67,8 @@ func hurt(dmg, direction):
 	print("owie owie ow")
 	attacking = false
 	health -= dmg
+	blood.emitting = true
+	blood_effect_timer.start()
 	velocity += direction * 100
 	if health <= 0:
 		health = 0
@@ -80,3 +84,7 @@ func _on_attack_timer_timeout() -> void:
 	else:
 		print(in_attack_radius)
 		print(attacking)
+
+
+func _on_blood_effect_timer_timeout() -> void:
+	blood.emitting = false
