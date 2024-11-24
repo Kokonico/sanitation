@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=7 format=3 uid="uid://c403patrcxw2m"]
+[gd_scene load_steps=26 format=3 uid="uid://c403patrcxw2m"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_tlkhv"]
 [ext_resource type="Texture2D" uid="uid://drdlrhvy375yp" path="res://Scripts/gobbo-sword_swing.png_1.png" id="3_dloja"]
@@ -146,6 +145,7 @@ animations = [{
 "name": &"run",
 "speed": 8.0
 }]
+
 [sub_resource type="Curve" id="Curve_3fk6f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
