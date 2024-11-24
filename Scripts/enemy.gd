@@ -6,9 +6,8 @@ extends CharacterBody2D
 var following
 var target
 var in_attack_radius
-@export var health = 100
+@export var health = 5
 @export var SPEED = 500
-var health
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health = int(randf_range(1, 3))
