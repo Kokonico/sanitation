@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @onready var collision_shape_2d: CollisionShape2D = $physicsbox
-@onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attackCollisionArea: CollisionPolygon2D = $AttackArea/CollisionPolygon2D
+@onready var health_bar: TextureProgressBar = $CanvasLayer/TextureProgressBar
 
 @export var health: int = 5
 
@@ -131,6 +131,8 @@ func hurt(dmg):
 		is_dead = true
 		velocity = Vector2.ZERO
 		animator.play("death")
+		await animator.animation_finished
+		get_tree().reload_current_scene()
 	
 func attack() -> void:
 	animator.play("attack")

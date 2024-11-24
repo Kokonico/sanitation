@@ -53,7 +53,6 @@ script = ExtResource("1_vt7ih")
 y = -3590
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 569.0
 offset_bottom = 63.0
@@ -62,3 +61,4 @@ text = "[center]Good morning Noble Night! We have a mission for you, go slay the
 visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("1_vt7ih")
+y = -9830

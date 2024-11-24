@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bk1pjho75cdba" path="res://Scripts/gobbo-run.png_2.png" id="6_agnqb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6aht1"]
-radius = 374.065
+radius = 508.319
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3nfh"]
-radius = 56.0357
+radius = 98.326
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tve08"]
-size = Vector2(265, 266)
+size = Vector2(368.5, 384)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pe1ya"]
 atlas = ExtResource("3_dloja")
@@ -169,7 +169,6 @@ shape = SubResource("CircleShape2D_e3nfh")
 [node name="pathfinder" type="NavigationAgent2D" parent="physicsbox"]
 avoidance_layers = 5
 avoidance_mask = 5
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="physicsbox/pathfinder"]
 wait_time = 0.25
@@ -180,7 +179,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(2, -23.405)
+position = Vector2(-23.875, -27)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_tve08")
 
@@ -188,7 +187,7 @@ shape = SubResource("RectangleShape2D_tve08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(37, -18)
-scale = Vector2(3.065, 3.065)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_v2ggj")
 animation = &"idle"
 frame_progress = 0.958119
