@@ -13,7 +13,7 @@ offset_top = 535.0
 offset_right = -193.0
 offset_bottom = -18.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 1
