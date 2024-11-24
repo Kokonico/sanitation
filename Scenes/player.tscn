@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnbexd7lsiij2"]
+[gd_scene load_steps=6 format=3 uid="uid://bnbexd7lsiij2"]
 
 [ext_resource type="Texture2D" uid="uid://du0lenqpft2yx" path="res://icon.svg" id="1_aptos"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_ja221"]
@@ -9,8 +9,11 @@ radius = 62.0322
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl25q"]
 bg_color = Color(0.451036, 0.68107, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oirgs"]
+size = Vector2(167, 165)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 3
+collision_layer = 2147483648
 script = ExtResource("1_ja221")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -37,3 +40,11 @@ theme_override_font_sizes/font_size = 60
 theme_override_styles/fill = SubResource("StyleBoxFlat_rl25q")
 allow_greater = true
 fill_mode = 3
+
+[node name="HitBox" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_oirgs")
