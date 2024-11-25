@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://bnbexd7lsiij2"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_6cs37"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6l875"]
 [ext_resource type="Texture2D" uid="uid://bu51vxh80ayn0" path="res://Animations/guy1-sword_swing no bg.png" id="3_7jf7x"]
 [ext_resource type="PackedScene" uid="uid://chd2ye1rj6f6f" path="res://Scenes/text/text1.tscn" id="3_bja68"]
 [ext_resource type="Texture2D" uid="uid://b1i0vshtdfbdb" path="res://Scenes/Game-Health-Bar-PNG-Background.png" id="3_f1kqk"]
@@ -183,7 +183,7 @@ animations = [{
 z_index = 999
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_6cs37")
+script = ExtResource("1_6l875")
 
 [node name="physicsbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lp8tm")
