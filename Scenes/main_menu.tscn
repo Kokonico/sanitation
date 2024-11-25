@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ua5uroyoritd"]
+[gd_scene load_steps=5 format=3 uid="uid://ua5uroyoritd"]
 
 [ext_resource type="Script" path="res://Scripts/start.gd" id="1_05uv1"]
 [ext_resource type="Texture2D" uid="uid://dopd3splpcwke" path="res://Scripts/thumb-1920-1376990.webp" id="2_dry4h"]
 [ext_resource type="Texture2D" uid="uid://clo3o3wqo1fgv" path="res://Scripts/knightfall_1.webp" id="2_ymdtf"]
+[ext_resource type="AudioStream" uid="uid://d4lufcp63ip7t" path="res://Anotha one. Happy theme.mp3" id="4_vj4uf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -57,5 +58,9 @@ offset_top = 0.0399933
 offset_right = 288.104
 offset_bottom = 146.272
 texture = ExtResource("2_ymdtf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vj4uf")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

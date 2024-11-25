@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bh480lcl1rw7b"]
+[gd_scene load_steps=37 format=4 uid="uid://bh480lcl1rw7b"]
 
 [ext_resource type="PackedScene" uid="uid://bnbexd7lsiij2" path="res://Scenes/player.tscn" id="1_47wvv"]
 [ext_resource type="Texture2D" uid="uid://bha6mlqqne6w3" path="res://Scenes/guy1-profile.png" id="1_ujuf4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://be20g8473b43w" path="res://Scenes/Gate_1.png" id="7_kvmha"]
 [ext_resource type="PackedScene" uid="uid://5qi2o4v3i7h" path="res://Scenes/fwend.tscn" id="9_glqag"]
 [ext_resource type="Texture2D" uid="uid://sgfx0mwlgm6v" path="res://Scenes/wooden-board-pixel-art-design-free-vector-removebg-preview.png" id="11_dxrhb"]
+[ext_resource type="AudioStream" uid="uid://d3gpvp5fj1p8t" path="res://Knight Fall Main Theme.mp3" id="12_pmtiu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dm2ph"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1002,3 +1003,7 @@ theme_override_colors/font_shadow_color = Color(0.666667, 0.466667, 0.290196, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
 text = "EXIT, NEW FOE"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_pmtiu")
+autoplay = true
